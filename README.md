@@ -35,8 +35,8 @@ npm run dev
 📖 Complete documentation for [Laravel Splade](https://splade.dev/docs/introducing-splade)
 
 You can use both for frontend toolkit:
-- [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-- [Preline](https://preline.co/docs/index.html)
+- [Basic Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [Preline](https://preline.co/docs/index.html) (Tailwind)
 
 ## Changelog
 
