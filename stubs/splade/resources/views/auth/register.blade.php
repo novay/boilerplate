@@ -1,18 +1,22 @@
+@seoTitle(__('Register'))
 <x-guest-layout>
     <x-auth-card>
-        <x-splade-form action="{{ route('register') }}" class="space-y-4">
-            <x-splade-input id="name" type="text" name="name" :label="__('Name')" required autofocus />
-            <x-splade-input id="email" type="email" name="email" :label="__('Email')" required />
-            <x-splade-input id="password" type="password" name="password" :label="__('Password')" required autocomplete="new-password" />
-            <x-splade-input id="password_confirmation" type="password" name="password_confirmation" :label="__('Confirm Password')" required />
+        <div class="text-center mb-3">
+            <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">
+                {{ __('Register A New Account') }}
+            </h1>
+        </div>
+        <x-splade-form action="{{ route('register') }}" class="space-y-2 mb-3">
+            <x-splade-input id="name" type="text" name="name" :label="__('Name')" autofocus />
+            <x-splade-input id="email" type="email" name="email" :label="__('Email')" />
+            <x-splade-input id="password" type="password" name="password" :label="__('Password')" autocomplete="new-password" />
+            <x-splade-input id="password_confirmation" type="password" name="password_confirmation" :label="__('Confirm Password')" />
 
-            <div class="flex items-center justify-end">
-                <Link class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </Link>
-
-                <x-splade-submit class="ml-4" :label="__('Register')" />
-            </div>
+            <x-splade-checkbox name="agree" value="1" label="I agree to Terms and Conditions" />
+            <x-splade-submit class="mt-5 d-block w-full" :label="__('Register')" />
         </x-splade-form>
+        <Link class="text-blue-600 decoration-2 hover:underline font-medium" href="{{ route('login') }}">
+            {{ __('Already registered?') }}
+        </Link>
     </x-auth-card>
 </x-guest-layout>

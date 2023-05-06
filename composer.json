@@ -1,11 +1,12 @@
 {
-    "name": "protonemedia/laravel-splade-breeze",
-    "description": "Minimal Laravel authentication scaffolding with Laravel Splade.",
+    "name": "novay/boilerplate",
+    "description": "My personal Laravel boilerplate.",
     "keywords": [
         "laravel",
         "auth",
         "splade",
-        "laravel-splade"
+        "laravel-splade", 
+        "preline"
     ],
     "license": "MIT",
     "support": {
@@ -20,6 +21,10 @@
         {
             "name": "Pascal Baljet",
             "email": "pascal@protone.media"
+        },
+        {
+            "name": "Novianto Rahmadi",
+            "email": "novay@btekno.id"
         }
     ],
     "require": {

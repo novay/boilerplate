@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use ProtoneMedia\Splade\Facades\Splade;
 use Illuminate\Validation\Rules\Password;
 
 class PasswordController extends Controller
@@ -25,6 +26,7 @@ class PasswordController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
+        Splade::toast('Password saved.');
         return back()->with('status', 'password-updated');
     }
 }

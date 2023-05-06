@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use ProtoneMedia\Splade\Facades\Splade;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -36,6 +37,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
+        Splade::toast('Profile saved.');
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
@@ -59,6 +61,7 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
+        Splade::toast('Account deleted.');
         return Redirect::to('/');
     }
 }

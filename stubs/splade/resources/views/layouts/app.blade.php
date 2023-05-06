@@ -1,14 +1,13 @@
-<div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-    @include('layouts.navigation')
-
-    <!-- Page Heading -->
-    <header class="bg-white dark:bg-gray-800 shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            {{ $header }}
+<div class="min-h-screen bg-white dark:bg-slate-900">
+    @include('layouts.partials.navigation')
+    @include('layouts.partials.header')
+    @isset($header)
+        <div class="bg-gray-50 border-b">
+            <div class="w-full py-3 px-4 sm:px-6 md:px-8 lg:pl-72">
+                {{ $header }}
+            </div>
         </div>
-    </header>
-
-    <!-- Page Content -->
+    @endisset
     <main>
         {{ $slot }}
     </main>
