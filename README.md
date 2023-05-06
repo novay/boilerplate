@@ -1,6 +1,6 @@
 # Laravel Boilerplate
 
-💡 This is a fork of the [Laravel Breeze for Laravel Splade](https://github.com/protonemedia/laravel-splade-breeze) implementation. And build for my personal use.
+💡 This is a fork of the [Laravel Breeze for Laravel Splade](https://github.com/protonemedia/laravel-splade-breeze) implementation. And built for my personal use.
 
 ## Installation
 
