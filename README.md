@@ -14,7 +14,15 @@ cd example-app
 composer require novay/boilerplate
 
 php artisan breeze:install
+
+
 ```
+
+Do not forget to migrate our default migration:
+
+```bash
+php artisan migrate
+````
 
 The `breeze:install` command will also build the frontend assets. Just like [regular Laravel applications](https://laravel.com/docs/10.x/vite#running-vite), you may run the Vite development server:
 
