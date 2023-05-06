@@ -41,7 +41,10 @@
     "autoload": {
         "psr-4": {
             "Laravel\\Breeze\\": "src/"
-        }
+        }, 
+        "files": [
+            "src/Helpers.php"
+        ]
     },
     "extra": {
         "branch-alias": {

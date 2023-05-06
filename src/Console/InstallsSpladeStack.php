@@ -90,6 +90,10 @@ trait InstallsSpladeStack
         copy($spladeBaseStubsDir.'resources/js/app.js', resource_path('js/app.js'));
         copy($spladeBaseStubsDir.'resources/js/ssr.js', resource_path('js/ssr.js'));
 
+        // Custom
+        copy($spladeBreezeStubsDir.'tailwind.config.js', base_path('tailwind.config.js'));
+        copy($spladeBreezeStubsDir.'resources/js/app.js', resource_path('js/app.js'));
+
         if (file_exists(base_path('pnpm-lock.yaml'))) {
             $this->runCommands(['pnpm install', 'pnpm run build']);
         } elseif (file_exists(base_path('yarn.lock'))) {
