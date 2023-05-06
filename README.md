@@ -2,7 +2,7 @@
 
 💡 This is a fork of the [Laravel Breeze for Laravel Splade](https://github.com/protonemedia/laravel-splade-breeze) implementation. And build for my personal use.
 
-## Documentation
+## Installation
 
 📖 The installation process is quite simple.
 
@@ -29,6 +29,14 @@ The `breeze:install` command will also build the frontend assets. Just like [reg
 ```bash
 npm run dev
 ````
+
+## Documentation
+
+📖 Complete documentation for [Laravel Splade](https://splade.dev/docs/introducing-splade)
+
+You can use both for frontend toolkit:
+- [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [Preline](https://preline.co/docs/index.html)
 
 ## Changelog
 
