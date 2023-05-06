@@ -4,7 +4,23 @@
 
 ## Documentation
 
-📖 You can find the documentation at [Splade.dev](https://splade.dev/docs/breeze) (and [here](https://github.com/protonemedia/laravel-splade-docs) its source code).
+📖 The installation process is quite simple.
+
+```bash
+laravel new example-app
+
+cd example-app
+
+composer require novay/boilerplate
+
+php artisan breeze:install
+```
+
+The `breeze:install` command will also build the frontend assets. Just like [regular Laravel applications](https://laravel.com/docs/10.x/vite#running-vite), you may run the Vite development server:
+
+```bash
+npm run dev
+````
 
 ## Changelog
 
