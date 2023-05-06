@@ -26,7 +26,7 @@ class PasswordController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
-        Splade::toast('Password saved.');
+        Splade::toast("Password saved.")->rightBottom()->autoDismiss(3);
         return back()->with('status', 'password-updated');
     }
 }

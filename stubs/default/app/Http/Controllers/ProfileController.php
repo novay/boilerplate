@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        Splade::toast('Profile saved.');
+        Splade::toast("Profile saved.")->rightBottom()->autoDismiss(3);
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
@@ -61,7 +61,7 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        Splade::toast('Account deleted.');
+        Splade::toast("Account deleted.")->rightBottom()->autoDismiss(3);
         return Redirect::to('/');
     }
 }

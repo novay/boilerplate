@@ -66,9 +66,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $input = $this->rules($request);
+        $input['password'] = str()->random(5);
         $this->data->create($input);
 
-        Splade::toast(__('message.created', ['attribute' => $this->title]));
+        Splade::toast("New {$this->title} created successfully")->rightBottom()->autoDismiss(3);
         return redirect()->route("{$this->prefix}.index");
     }
 
@@ -92,7 +93,7 @@ class UserController extends Controller
         $input = $this->rules($request, $edit);
         $edit->update($input);
 
-        Splade::toast("{$this->title} updated successfully");
+        Splade::toast("{$this->title} updated successfully")->rightBottom()->autoDismiss(3);
         return redirect()->route("{$this->prefix}.index");
     }
 
@@ -104,7 +105,7 @@ class UserController extends Controller
         $data = $this->data->find($id);
         $data->delete();
 
-        Splade::toast("{$this->title} deleted successfully");
+        Splade::toast("{$this->title} deleted successfully")->rightBottom()->autoDismiss(3);
         return redirect()->route("{$this->prefix}.index");
     }
 }
