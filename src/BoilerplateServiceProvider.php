@@ -1,28 +1,24 @@
 <?php
 
-namespace Laravel\Breeze;
+namespace Novay\Boilerplate;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class BreezeServiceProvider extends ServiceProvider implements DeferrableProvider
+class BoilerplateServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         //
     }
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         if (! $this->app->runningInConsole()) {
             return;
@@ -35,10 +31,8 @@ class BreezeServiceProvider extends ServiceProvider implements DeferrableProvide
 
     /**
      * Get the services provided by the provider.
-     *
-     * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [Console\InstallCommand::class];
     }

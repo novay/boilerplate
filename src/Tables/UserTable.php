@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Breeze\Tables;
+namespace Novay\Boilerplate\Tables;
 
 use App\Models\User;
 use Illuminate\Http\Request;

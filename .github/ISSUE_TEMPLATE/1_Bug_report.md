@@ -10,7 +10,6 @@ about: 'Report a general library issue. Please ensure your version is still supp
 
 ### Description:
 
-
 ### Steps To Reproduce:
 
 <!-- If possible, please provide a GitHub repository to demonstrate your issue -->

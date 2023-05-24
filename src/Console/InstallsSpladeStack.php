@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Breeze\Console;
+namespace Novay\Boilerplate\Console;
 
 use Illuminate\Filesystem\Filesystem;
 use ProtoneMedia\Splade\Commands\InstallsSpladeExceptionHandler;
@@ -13,7 +13,7 @@ trait InstallsSpladeStack
     use InstallsSpladeRouteMiddleware;
 
     /**
-     * Install the Splade Breeze stack.
+     * Install the Splade Boilerplate stack.
      *
      * @return void
      */
@@ -25,14 +25,16 @@ trait InstallsSpladeStack
         // NPM Packages...
         $this->updateNodePackages(function ($packages) {
             return [
+                '@iconify/vue' => '^4.1.1',
                 '@protonemedia/laravel-splade' => '^1.3.0',
                 '@tailwindcss/forms' => '^0.5.3',
                 '@tailwindcss/typography' => '^0.5.2',
-                'preline' => "^1.8.0", 
                 '@vitejs/plugin-vue' => '^3.0.0',
                 'autoprefixer' => '^10.4.12',
-                'laravel-vite-plugin' => '^0.5.0',
+                'laravel-vite-plugin' => '^0.7.7',
                 'postcss' => '^8.4.18',
+                'preline' => '^1.8.0',
+                'primevue' => '^3.29.1',
                 'tailwindcss' => '^3.2.1',
                 'vite' => '^3.0.0',
                 'vue' => '^3.2.41',
@@ -43,7 +45,7 @@ trait InstallsSpladeStack
         $this->updateNodeScript();
 
         $defaultStubsDir = __DIR__.'/../../stubs/default/';
-        $spladeBreezeStubsDir = __DIR__.'/../../stubs/splade/';
+        $spladeBoilerplateStubsDir = __DIR__.'/../../stubs/splade/';
         $spladeBaseStubsDir = base_path('vendor/protonemedia/laravel-splade/stubs/');
 
         // Controllers...
@@ -56,7 +58,7 @@ trait InstallsSpladeStack
 
         // Views...
         (new Filesystem)->ensureDirectoryExists(resource_path('views'));
-        (new Filesystem)->copyDirectory($spladeBreezeStubsDir.'resources/views', resource_path('views'));
+        (new Filesystem)->copyDirectory($spladeBoilerplateStubsDir.'resources/views', resource_path('views'));
 
         $this->removeDarkClasses(
             (new Finder)
@@ -64,9 +66,9 @@ trait InstallsSpladeStack
                 ->name('*.blade.php')
         );
 
-        copy($spladeBreezeStubsDir.'resources/views/dashboard.blade.php', resource_path('views/dashboard.blade.php'));
-        copy($spladeBreezeStubsDir.'resources/views/root.blade.php', resource_path('views/root.blade.php'));
-        copy($spladeBreezeStubsDir.'resources/views/welcome.blade.php', resource_path('views/welcome.blade.php'));
+        copy($spladeBoilerplateStubsDir.'resources/views/dashboard.blade.php', resource_path('views/dashboard.blade.php'));
+        copy($spladeBoilerplateStubsDir.'resources/views/root.blade.php', resource_path('views/root.blade.php'));
+        copy($spladeBoilerplateStubsDir.'resources/views/welcome.blade.php', resource_path('views/welcome.blade.php'));
 
         // Components...
         (new Filesystem)->ensureDirectoryExists(app_path('View/Components'));
@@ -76,8 +78,8 @@ trait InstallsSpladeStack
         $this->installTests();
 
         // Routes...
-        copy($spladeBreezeStubsDir.'routes/web.php', base_path('routes/web.php'));
-        copy($spladeBreezeStubsDir.'routes/auth.php', base_path('routes/auth.php'));
+        copy($spladeBoilerplateStubsDir.'routes/web.php', base_path('routes/web.php'));
+        copy($spladeBoilerplateStubsDir.'routes/auth.php', base_path('routes/auth.php'));
 
         // "Dashboard" Route...
         $this->replaceInFile('/home', '/dashboard', app_path('Providers/RouteServiceProvider.php'));
@@ -91,8 +93,9 @@ trait InstallsSpladeStack
         copy($spladeBaseStubsDir.'resources/js/ssr.js', resource_path('js/ssr.js'));
 
         // Custom
-        copy($spladeBreezeStubsDir.'tailwind.config.js', base_path('tailwind.config.js'));
-        copy($spladeBreezeStubsDir.'resources/js/app.js', resource_path('js/app.js'));
+        copy($spladeBoilerplateStubsDir.'tailwind.config.js', base_path('tailwind.config.js'));
+        copy($spladeBoilerplateStubsDir.'resources/js/app.js', resource_path('js/app.js'));
+        copy($spladeBoilerplateStubsDir.'resources/js/dark.js', resource_path('js/dark.js'));
 
         if (file_exists(base_path('pnpm-lock.yaml'))) {
             $this->runCommands(['pnpm install', 'pnpm run build']);
@@ -103,15 +106,13 @@ trait InstallsSpladeStack
         }
 
         $this->line('');
-        $this->components->info('Breeze scaffolding installed successfully.');
+        $this->components->info('Boilerplate scaffolding installed successfully.');
     }
 
     /**
      * Remove Tailwind dark classes from the given files.
-     *
-     * @return void
      */
-    protected function removeDarkClasses(Finder $finder)
+    protected function removeDarkClasses(Finder $finder): void
     {
         foreach ($finder as $file) {
             file_put_contents($file->getPathname(), preg_replace('/\sdark:[^\s"\']+/', '', $file->getContents()));
@@ -120,10 +121,8 @@ trait InstallsSpladeStack
 
     /**
      * Adds the SSR build step to the 'build' command.
-     *
-     * @return void
      */
-    protected function updateNodeScript()
+    protected function updateNodeScript(): void
     {
         if (! file_exists(base_path('package.json'))) {
             return;

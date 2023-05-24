@@ -1,6 +1,6 @@
 # Laravel Boilerplate
 
-💡 This is a fork of the [Laravel Breeze for Laravel Splade](https://github.com/protonemedia/laravel-splade-breeze) implementation. And built for my personal use.
+💡 This built for my personal use.
 
 ## Installation
 
@@ -13,7 +13,7 @@ cd example-app
 
 composer require novay/boilerplate
 
-php artisan breeze:install
+php artisan boilerplate:install
 
 
 ```
@@ -24,7 +24,7 @@ Do not forget to migrate our default migration:
 php artisan migrate
 ````
 
-The `breeze:install` command will also build the frontend assets. Just like [regular Laravel applications](https://laravel.com/docs/10.x/vite#running-vite), you may run the Vite development server:
+The `boilerplate:install` command will also build the frontend assets. Just like [regular Laravel applications](https://laravel.com/docs/10.x/vite#running-vite), you may run the Vite development server:
 
 ```bash
 npm run dev

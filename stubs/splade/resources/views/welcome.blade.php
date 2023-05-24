@@ -50,7 +50,7 @@
                 <div class="text-center py-10 px-4 sm:px-6 lg:px-8">
                     <div class="max-w-5xl mx-auto text-center mb-10">
                         <h2 class="text-3xl leading-tight font-bold md:text-4xl md:leading-tight lg:text-7xl lg:leading-tight bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-700 text-transparent">
-                            Splade + Preline Boilerplate
+                            Laravel + Tailwind Boilerplate
                         </h2>
                         <p class="mt-2 lg:text-lg text-gray-800 dark:text-gray-200">Whatever our status, we needs evolve according to our needs.</p>
                     </div>
@@ -67,7 +67,7 @@
             <footer class="mt-auto text-center py-5">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p class="text-sm text-gray-600 hover:text-gray-500 py-3 md:py-6 dark:text-gray-400">
-                        Open Source colaboration from <a href="https://preline.co" class="text-gray-600 decoration-2 underline underline-offset-2 font-medium hover:text-gray-400 hover:decoration-gray-400" target="_blank">Preline</a> and <a href="https://splade.dev/" class="text-gray-600 decoration-2 underline underline-offset-2 font-medium hover:text-gray-400 hover:decoration-gray-400" target="_blank">Laravel Splade</a>
+                        Open Source colaboration from <a href="https://iconify.design" class="text-gray-600 decoration-2 underline underline-offset-2 font-medium hover:text-gray-400 hover:decoration-gray-400" target="_blank">Iconify</a>, <a href="https://preline.co" class="text-gray-600 decoration-2 underline underline-offset-2 font-medium hover:text-gray-400 hover:decoration-gray-400" target="_blank">Preline</a> and <a href="https://splade.dev/" class="text-gray-600 decoration-2 underline underline-offset-2 font-medium hover:text-gray-400 hover:decoration-gray-400" target="_blank">Laravel Splade</a>
                     </p>
                 </div>
             </footer>

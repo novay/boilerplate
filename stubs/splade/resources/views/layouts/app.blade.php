@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-white dark:bg-slate-900">
+<div class="min-h-screen">
     @include('layouts.partials.navigation')
     @include('layouts.partials.header')
     @isset($header)

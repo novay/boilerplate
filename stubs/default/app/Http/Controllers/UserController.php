@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Laravel\Breeze\Tables\UserTable;
+use Novay\Boilerplate\Tables\UserTable;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

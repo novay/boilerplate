@@ -1,18 +1,8 @@
 {
     "name": "novay/boilerplate",
     "description": "My personal Laravel boilerplate.",
-    "keywords": [
-        "laravel",
-        "auth",
-        "splade",
-        "laravel-splade", 
-        "preline"
-    ],
+    "keywords": ["laravel", "splade"],
     "license": "MIT",
-    "support": {
-        "issues": "https://github.com/protonemedia/laravel-splade-breeze/issues",
-        "source": "https://github.com/protonemedia/laravel-splade-breeze"
-    },
     "authors": [
         {
             "name": "Taylor Otwell",
@@ -40,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Laravel\\Breeze\\": "src/"
+            "Novay\\Boilerplate\\": "src/"
         }, 
         "files": [
             "src/Helpers.php"
@@ -52,7 +42,7 @@
         },
         "laravel": {
             "providers": [
-                "Laravel\\Breeze\\BreezeServiceProvider"
+                "Novay\\Boilerplate\\BoilerplateServiceProvider"
             ]
         }
     },

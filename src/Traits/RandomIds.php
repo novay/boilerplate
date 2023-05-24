@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Breeze\Traits;
+namespace Novay\Boilerplate\Traits;
 
 use Illuminate\Support\Str;
 

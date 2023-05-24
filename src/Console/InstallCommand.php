@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Breeze\Console;
+namespace Novay\Boilerplate\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -12,53 +12,38 @@ use Symfony\Component\Process\Process;
 
 class InstallCommand extends Command
 {
-    use InstallsApiStack, InstallsBladeStack, InstallsInertiaStacks, InstallsSpladeStack;
+    use InstallsSpladeStack;
 
     /**
      * The name and signature of the console command.
-     *
-     * @var string
      */
-    protected $signature = 'breeze:install {stack=splade : The development stack that should be installed (blade,react,vue,api,splade)}
-                            {--dark : Indicate that dark mode support should be installed}
-                            {--inertia : Indicate that the Vue Inertia stack should be installed (Deprecated)}
-                            {--pest : Indicate that Pest should be installed}
-                            {--ssr : Indicates if Inertia SSR support should be installed}
-                            {--composer=global : Absolute path to the Composer binary which should be used to install packages}';
+    protected $signature = 'boilerplate:install {stack=splade : The development stack that should be installed (blade, react, vue, api, splade)}
+                {--dark : Indicate that dark mode support should be installed}
+                {--pest : Indicate that Pest should be installed}
+                {--ssr : Indicates if Inertia SSR support should be installed}
+                {--composer=global : Absolute path to the Composer binary which should be used to install packages}';
 
     /**
      * The console command description.
-     *
-     * @var string
      */
-    protected $description = 'Install the Breeze controllers and resources';
+    protected $description = 'Install the Boilerplate controllers and resources';
 
     /**
      * Execute the console command.
-     *
-     * @return int|null
      */
     public function handle()
     {
-        if ($this->option('inertia') || $this->argument('stack') === 'vue') {
-            return $this->installInertiaVueStack();
-        } elseif ($this->argument('stack') === 'react') {
-            return $this->installInertiaReactStack();
-        } elseif ($this->argument('stack') === 'api') {
-            return $this->installApiStack();
-        } elseif ($this->argument('stack') === 'blade') {
-            return $this->installBladeStack();
-        } elseif ($this->argument('stack') === 'splade') {
+        if ($this->argument('stack') === 'splade') {
             return $this->installSpladeStack();
         }
 
-        $this->components->error('Invalid stack. Supported stacks are [blade], [react], [vue], [api], and [splade].');
+        $this->components->error('Invalid stack. Supported stacks are [splade].');
 
         return 1;
     }
 
     /**
-     * Install Breeze's tests.
+     * Install Boilerplate's tests.
      *
      * @return void
      */
@@ -66,9 +51,9 @@ class InstallCommand extends Command
     {
         (new Filesystem)->ensureDirectoryExists(base_path('tests/Feature'));
 
-        $stubStack = $this->argument('stack') === 'api' ? 'api' : 'default';
+        $stubStack = 'default';
 
-        $spladeStack = $this->argument('stack') === 'splade';
+        $spladeStack = 'splade';
 
         if ($spladeStack) {
             $this->installDusk();
@@ -95,10 +80,8 @@ class InstallCommand extends Command
 
     /**
      * Install Laravel Dusk.
-     *
-     * @return void
      */
-    protected function installDusk()
+    protected function installDusk(): void
     {
         $this->requireComposerPackages(['laravel/dusk', 'protonemedia/laravel-dusk-fakes'], true);
 
@@ -111,13 +94,8 @@ class InstallCommand extends Command
 
     /**
      * Install the middleware to a group in the application Http Kernel.
-     *
-     * @param  string  $after
-     * @param  string  $name
-     * @param  string  $group
-     * @return void
      */
-    protected function installMiddlewareAfter($after, $name, $group = 'web')
+    protected function installMiddlewareAfter($after, $name, $group = 'web'): void
     {
         $httpKernel = file_get_contents(app_path('Http/Kernel.php'));
 
@@ -141,12 +119,8 @@ class InstallCommand extends Command
 
     /**
      * Installs the given Composer Packages into the application.
-     *
-     * @param  mixed  $packages
-     * @param  bool  $dev
-     * @return void
      */
-    protected function requireComposerPackages($packages, $dev = false)
+    protected function requireComposerPackages($packages, $dev = false): void
     {
         $composer = $this->option('composer');
 
@@ -169,11 +143,8 @@ class InstallCommand extends Command
 
     /**
      * Update the "package.json" file.
-     *
-     * @param  bool  $dev
-     * @return void
      */
-    protected static function updateNodePackages(callable $callback, $dev = true)
+    protected static function updateNodePackages(callable $callback, $dev = true): void
     {
         if (! file_exists(base_path('package.json'))) {
             return;
@@ -198,10 +169,8 @@ class InstallCommand extends Command
 
     /**
      * Delete the "node_modules" directory and remove the associated lock files.
-     *
-     * @return void
      */
-    protected static function flushNodeModules()
+    protected static function flushNodeModules(): void
     {
         tap(new Filesystem, function ($files) {
             $files->deleteDirectory(base_path('node_modules'));
@@ -213,34 +182,24 @@ class InstallCommand extends Command
 
     /**
      * Replace a given string within a given file.
-     *
-     * @param  string  $search
-     * @param  string  $replace
-     * @param  string  $path
-     * @return void
      */
-    protected function replaceInFile($search, $replace, $path)
+    protected function replaceInFile($search, $replace, $path): void
     {
         file_put_contents($path, str_replace($search, $replace, file_get_contents($path)));
     }
 
     /**
      * Get the path to the appropriate PHP binary.
-     *
-     * @return string
      */
-    protected function phpBinary()
+    protected function phpBinary(): string
     {
         return (new PhpExecutableFinder())->find(false) ?: 'php';
     }
 
     /**
      * Run the given commands.
-     *
-     * @param  array  $commands
-     * @return void
      */
-    protected function runCommands($commands)
+    protected function runCommands($commands): void
     {
         $process = Process::fromShellCommandline(implode(' && ', $commands), null, null, null, null);
 
@@ -259,10 +218,8 @@ class InstallCommand extends Command
 
     /**
      * Remove Tailwind dark classes from the given files.
-     *
-     * @return void
      */
-    protected function removeDarkClasses(Finder $finder)
+    protected function removeDarkClasses(Finder $finder): void
     {
         foreach ($finder as $file) {
             file_put_contents($file->getPathname(), preg_replace('/\sdark:[^\s"\']+/', '', $file->getContents()));
