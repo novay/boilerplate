@@ -2,13 +2,8 @@
 
 namespace Novay\Boilerplate\Traits;
 
-use Illuminate\Support\Str;
-
 trait RandomIds
 {
-   /**
-     * Boot function from Laravel.
-     */
     protected static function boot()
     {
         parent::boot();
@@ -19,9 +14,6 @@ trait RandomIds
         });
     }
 
-   /**
-     * Get the value indicating whether the IDs are incrementing.
-     */
     public function getIncrementing(): bool
     {
         return false;

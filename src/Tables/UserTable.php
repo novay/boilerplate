@@ -2,41 +2,32 @@
 
 namespace Novay\Boilerplate\Tables;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use ProtoneMedia\Splade\SpladeTable;
 use ProtoneMedia\Splade\AbstractTable;
 use ProtoneMedia\Splade\Facades\Splade;
 
+use App\Models\User;
+
 class UserTable extends AbstractTable
 {
-    /**
-     * Create a new instance.
-     */
-    public function __construct()
+    protected $model, $route;
+
+    public function __construct(User $model)
     {
-        //
+        $this->model = $model;
     }
 
-    /**
-     * Determine if the user is authorized to perform bulk actions and exports.
-     */
     public function authorize(Request $request): bool
     {
         return true;
     }
 
-    /**
-     * The resource or query builder.
-     */
     public function for(): mixed
     {
-        return User::query();
+        return $this->model->query();
     }
 
-    /**
-     * Configure the given SpladeTable.
-     */
     public function configure(SpladeTable $table): void
     {
         $table->withGlobalSearch(columns: ['name', 'email', 'phone'])
@@ -48,8 +39,8 @@ class UserTable extends AbstractTable
             ->bulkAction(
                 label: __('Delete Selected'), 
                 after: function (array $selectedIds) {
-                    User::whereIn('id', $selectedIds)->delete();
-                    Splade::toast("Some items deleted successfully");
+                    $this->model->whereIn('id', $selectedIds)->delete();
+                    Splade::toast("Some items deleted successfully!");
                 },
                 confirm: 'Delete items',
                 confirmText: 'Are you sure you want to delete selected item?',
