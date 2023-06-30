@@ -1,9 +1,9 @@
-<div class="min-h-screen">
+<div class="min-h-screen flex-col">
     @include('layouts.partials.navigation')
     @include('layouts.partials.header')
     @isset($header)
-        <div class="bg-gray-50 border-b">
-            <div class="w-full py-3 px-4 sm:px-6 md:px-8 lg:pl-72">
+        <div class="border-b bg-white w-screen">
+            <div class="w-full py-1 px-1 sm:px-2 md:px-2 lg:pl-60">
                 {{ $header }}
             </div>
         </div>

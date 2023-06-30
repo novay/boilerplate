@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Panel;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Auth;
 use ProtoneMedia\Splade\Facades\Splade;
 use Illuminate\Support\Facades\Redirect;
@@ -10,6 +12,17 @@ use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->view = 'panel.profile';
+        $this->prefix = 'panel.profile';
+
+        view()->share([
+            'prefix' => $this->prefix, 
+            'view' => $this->view
+        ]);
+    }
+
     /**
      * Display the user's profile form.
      *
@@ -17,7 +30,7 @@ class ProfileController extends Controller
      */
     public function edit(Request $request)
     {
-        return view('profile.edit', [
+        return view("{$this->view}.edit", [
             'user' => $request->user(),
         ]);
     }
@@ -38,7 +51,7 @@ class ProfileController extends Controller
         $request->user()->save();
 
         Splade::toast("Profile saved.")->rightBottom()->autoDismiss(3);
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route("{$this->prefix}.edit")->with('status', 'profile-updated');
     }
 
     /**

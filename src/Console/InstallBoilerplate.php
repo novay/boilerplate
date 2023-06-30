@@ -52,6 +52,10 @@ trait InstallBoilerplate
         (new Filesystem)->ensureDirectoryExists(app_path('Traits'));
         (new Filesystem)->copyDirectory($defaultStubsDir.'app/Traits', app_path('Traits'));
 
+        // Tables...
+        (new Filesystem)->ensureDirectoryExists(app_path('Tables'));
+        (new Filesystem)->copyDirectory($defaultStubsDir.'app/Tables', app_path('Tables'));
+
         // Requests...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Requests'));
         (new Filesystem)->copyDirectory($defaultStubsDir.'app/Http/Requests', app_path('Http/Requests'));
@@ -59,10 +63,6 @@ trait InstallBoilerplate
         // Views...
         (new Filesystem)->ensureDirectoryExists(resource_path('views'));
         (new Filesystem)->copyDirectory($defaultStubsDir.'resources/views', resource_path('views'));
-
-        copy($defaultStubsDir.'resources/views/dashboard.blade.php', resource_path('views/dashboard.blade.php'));
-        copy($defaultStubsDir.'resources/views/root.blade.php', resource_path('views/root.blade.php'));
-        copy($defaultStubsDir.'resources/views/welcome.blade.php', resource_path('views/welcome.blade.php'));
 
         // Components...
         (new Filesystem)->ensureDirectoryExists(app_path('View/Components'));

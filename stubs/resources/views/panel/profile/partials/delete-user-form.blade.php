@@ -11,7 +11,7 @@
 
      <x-splade-form
         method="delete"
-        :action="route('profile.destroy')"
+        :action="route($prefix . '.destroy')"
         :confirm="__('Are you sure you want to delete your account?')"
         :confirm-text="__('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.')"
         :confirm-button="__('Delete Account')"

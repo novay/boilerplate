@@ -22,9 +22,8 @@ trait ControllerTrait
      */
     public function create(Request $request)
     {
-        return view('components.form', [
-            'subtitle' => __('Create'), 
-            'form' => $this->forms(route("{$this->prefix}.store"), 'POST')
+        return view("{$this->view}.create", [
+            'subtitle' => __('Create')
         ]);
     }
 
@@ -38,7 +37,7 @@ trait ControllerTrait
 
         $this->data->create($input);
 
-        Splade::toast(__('value.created', ['title' => $this->title]));
+        Splade::toast(__("New {$this->title} created successfully!"));
         return redirect()->route("{$this->prefix}.index");
     }
 
@@ -47,12 +46,9 @@ trait ControllerTrait
      */
     public function edit(Request $request, $id)
     {
-        $edit = $this->data->find($id);
-
-        return view('components.form', [
+        return view("{$this->view}.edit", [
             'subtitle' => __('Edit'), 
-            'edit' => $edit->id, 
-            'form' => $this->forms(route("{$this->prefix}.update", $id), 'PUT', $edit)
+            'edit' => $this->data->find($id)
         ]);
     }
 
@@ -67,7 +63,7 @@ trait ControllerTrait
         
         $edit->update($input);
 
-        Splade::toast(__('value.updated', ['title' => $this->title]));
+        Splade::toast(__("{$this->title} updated successfully!"));
         return redirect()->route("{$this->prefix}.index");
     }
 
@@ -79,7 +75,7 @@ trait ControllerTrait
         $data = $this->data->find($id);
         $data->delete();
 
-        Splade::toast(__('value.deleted', ['title' => $this->title]));
+        Splade::toast(__("{$this->title} deleted successfully!"));
         return redirect()->route("{$this->prefix}.index");
     }
 

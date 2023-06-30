@@ -1,6 +1,6 @@
 <?php
 
-namespace Novay\Boilerplate\Traits;
+namespace App\Traits;
 
 trait RandomIds
 {

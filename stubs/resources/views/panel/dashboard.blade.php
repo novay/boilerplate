@@ -1,7 +1,7 @@
 @seoTitle('Dashboard')
 <x-app-layout>
-    <div class="w-full lg:pl-64">
-        <header class="p-5">
+    <div class="w-full lg:pl-60">
+        <header class="py-5">
             <p class="mb-2 text-sm font-semibold text-blue-600">
                 Starter Pages & Examples
             </p>

@@ -9,28 +9,28 @@
             </button>
         </div>
     </div>
-    <div id="application-sidebar" class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-white border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-gray-800 dark:border-gray-700">
+    <div id="application-sidebar" class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-56 bg-white border-r border-gray-200 pt-4 pb-0 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-gray-800 dark:border-gray-700">
         <div class="px-6">
-            <Link href="{{ route('dashboard') }}" class="flex-none text-xl font-semibold text-gray-400 dark:text-white">
+            <Link href="{{ route('panel.index') }}" class="flex-none text-xl font-semibold text-gray-400 dark:text-white">
                 <x-application-logo class="block h-9 w-auto fill-current" />
             </Link>
         </div>
-        <nav class="hs-accordion-group p-4 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
+        <nav class="hs-accordion-group p-3 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
             <ul class="space-y-1">
                 <li>
-                    <x-splade-link :href="route('dashboard')" class="flex items-center gap-x-2 px-2.5 py-1.5 font-medium text-slate-700 rounded-md hover:bg-gray-100 {{ request()->routeIs('dashboard') ? 'bg-gray-100 dark:bg-gray-900 dark:text-white' : 'dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300' }}">
+                    <x-splade-link :href="route('panel.index')" class="flex items-center gap-x-2 px-2.5 py-1.5 font-medium text-slate-700 rounded hover:bg-gray-100 {{ request()->routeIs('panel.index') ? 'bg-gray-100 dark:bg-gray-900 dark:text-white' : 'dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300' }}">
                         <Icon class="w-6 h-6" icon="solar:home-angle-line-duotone" />
                         Dashboard
                     </x-splade-link>
                 </li>
                 <li>
-                    <x-splade-link :href="route('users.index')" class="flex items-center gap-x-2 px-2.5 py-1.5 font-medium text-slate-700 rounded-md hover:bg-gray-100 {{ request()->routeIs('users.*') ? 'bg-gray-100 dark:bg-gray-900 dark:text-white' : 'dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300' }}">
+                    <x-splade-link :href="route('panel.users.index')" class="flex items-center gap-x-2 px-2.5 py-1.5 font-medium text-slate-700 rounded hover:bg-gray-100 {{ request()->routeIs('panel.users.*') ? 'bg-gray-100 dark:bg-gray-900 dark:text-white' : 'dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300' }}">
                         <Icon class="w-6 h-6" icon="solar:user-id-line-duotone" />
                         Users
                     </x-splade-link>
                 </li>
                 <li class="hs-accordion" id="users-accordion">
-                    <a class="hs-accordion-toggle flex items-center gap-x-2 px-2.5 py-1.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent font-medium text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" href="javascript:;">
+                    <a class="hs-accordion-toggle flex items-center gap-x-2 px-2.5 py-1.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent font-medium text-slate-700 rounded hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" href="javascript:;">
                         <Icon class="w-6 h-6" icon="solar:bookmark-opened-line-duotone" />
                         Example
                         <Icon icon="solar:alt-arrow-up-line-duotone" class="hs-accordion-active:block ml-auto hidden w-3 h-3 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" />
@@ -39,12 +39,12 @@
                     <div id="users-accordion-sub" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
                         <ul class="hs-accordion-group pl-3 pt-2" data-hs-accordion-always-open>
                             <li>
-                                <a class="flex items-center gap-x-2 px-2.5 py-1.5 text-sm font-medium text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
+                                <a class="flex items-center gap-x-2 px-2.5 py-1.5 text-sm font-medium text-slate-700 rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
                                     Link 1
                                 </a>
                             </li>
                             <li class="hs-accordion" id="users-accordion-sub-2">
-                                <a class="hs-accordion-toggle flex items-center gap-x-2 px-2.5 py-1.5 text-sm hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent font-medium text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" href="javascript:;">
+                                <a class="hs-accordion-toggle flex items-center gap-x-2 px-2.5 py-1.5 text-sm hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent font-medium text-slate-700 rounded hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" href="javascript:;">
                                     Sub Menu 2
                                     <Icon icon="solar:alt-arrow-up-line-duotone" class="hs-accordion-active:block ml-auto hidden w-3 h-3 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" />
                                     <Icon icon="solar:alt-arrow-down-line-duotone" class="hs-accordion-active:hidden ml-auto block w-3 h-3 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" />
@@ -52,17 +52,17 @@
                                 <div id="users-accordion-sub-2-child" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden pl-2">
                                     <ul class="pt-2 pl-2">
                                         <li>
-                                            <a class="flex items-center gap-x-2 px-2.5 py-1.5 text-sm font-medium text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
+                                            <a class="flex items-center gap-x-2 px-2.5 py-1.5 text-sm font-medium text-slate-700 rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
                                                 Link 1
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="flex items-center gap-x-2 px-2.5 py-1.5 text-sm font-medium text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
+                                            <a class="flex items-center gap-x-2 px-2.5 py-1.5 text-sm font-medium text-slate-700 rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
                                                 Link 2
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="flex items-center gap-x-2 px-2.5 py-1.5 text-sm font-medium text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
+                                            <a class="flex items-center gap-x-2 px-2.5 py-1.5 text-sm font-medium text-slate-700 rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
                                                 Link 3
                                             </a>
                                         </li>

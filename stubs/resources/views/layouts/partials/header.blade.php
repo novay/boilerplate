@@ -1,4 +1,4 @@
-<header class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-[48] w-full text-sm py-2.5 sm:py-2 lg:pl-64">
+<header class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-[24] w-full text-sm py-2.5 sm:py-2 lg:pl-64 bg-white border-b">
     <nav class="flex basis-full items-center w-full mx-auto px-4 sm:px-6 md:px-8" aria-label="Global">
         <div class="mr-5 lg:mr-0 lg:hidden">
             <a class="flex-none text-xl font-semibold" href="#" aria-label="Boilerplate">Boilerplate</a>
@@ -37,7 +37,7 @@
                             <p class="font-medium text-gray-600">{{ Auth::user()->email }}</p>
                         </div>
                         <div class="mt-2 py-2 first:pt-0 last:pb-0">
-                            <Link href="{{ route('profile.edit') }}" class="flex items-center gap-x-1.5 py-2 px-3 text-base font-medium rounded-md text-gray-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                            <Link href="{{ route('panel.profile.edit') }}" class="flex items-center gap-x-1.5 py-2 px-3 text-base font-medium rounded-md text-gray-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
                                 <Icon class="flex-none h-5 w-5" icon="solar:user-circle-linear" />
                                 {{ __('Profile') }}
                             </Link>
