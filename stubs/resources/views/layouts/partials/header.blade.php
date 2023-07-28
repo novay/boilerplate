@@ -38,16 +38,13 @@
                         </div>
                         <div class="mt-2 py-2 first:pt-0 last:pb-0">
                             <Link href="{{ route('panel.profile.edit') }}" class="flex items-center gap-x-1.5 py-2 px-3 text-base font-medium rounded-md text-gray-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
-                                <Icon class="flex-none h-5 w-5" icon="solar:user-circle-linear" />
+                                <Icon class="flex-none h-5 w-5" icon="mingcute:contacts-line" />
                                 {{ __('Profile') }}
                             </Link>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <Link href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="flex items-center gap-x-2 py-2 px-3 text-base font-medium rounded-md text-gray-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
-                                    <Icon class="flex-none h-5 w-5" icon="solar:logout-3-line-duotone" />
-                                    {{ __('Log Out') }}
-                                </Link>
-                            </form>
+                            <Link href="{{ route('logout') }}" method="POST" class="flex items-center gap-x-2 py-2 px-3 text-base font-medium rounded-md text-gray-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                                <Icon class="flex-none h-5 w-5" icon="mingcute:delete-back-line" />
+                                {{ __('Log Out') }}
+                            </Link>
                         </div>
                     </div>
                 </div>

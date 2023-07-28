@@ -21,7 +21,8 @@ createApp({render: renderSpladeApp({ el })})
     .use(SpladePlugin, {
         "max_keep_alive": 10,
         "transform_anchors": false,
-        "progress_bar": true
+        "progress_bar": true, 
+        "view_transitions": true
     })
     .component('Icon', Icon)
     .mount(el);

@@ -19,19 +19,19 @@
             <ul class="space-y-1">
                 <li>
                     <x-splade-link :href="route('panel.index')" class="flex items-center gap-x-2 px-2.5 py-1.5 font-medium text-slate-700 rounded hover:bg-gray-100 {{ request()->routeIs('panel.index') ? 'bg-gray-100 dark:bg-gray-900 dark:text-white' : 'dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300' }}">
-                        <Icon class="w-6 h-6" icon="solar:home-angle-line-duotone" />
-                        Dashboard
+                        <Icon class="w-6 h-6" icon="mingcute:classify-2-line" />
+                        Home
                     </x-splade-link>
                 </li>
                 <li>
                     <x-splade-link :href="route('panel.users.index')" class="flex items-center gap-x-2 px-2.5 py-1.5 font-medium text-slate-700 rounded hover:bg-gray-100 {{ request()->routeIs('panel.users.*') ? 'bg-gray-100 dark:bg-gray-900 dark:text-white' : 'dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300' }}">
-                        <Icon class="w-6 h-6" icon="solar:user-id-line-duotone" />
+                        <Icon class="w-6 h-6" icon="mingcute:group-line" />
                         Users
                     </x-splade-link>
                 </li>
                 <li class="hs-accordion" id="users-accordion">
                     <a class="hs-accordion-toggle flex items-center gap-x-2 px-2.5 py-1.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent font-medium text-slate-700 rounded hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" href="javascript:;">
-                        <Icon class="w-6 h-6" icon="solar:bookmark-opened-line-duotone" />
+                        <Icon class="w-6 h-6" icon="mingcute:folder-3-line" />
                         Example
                         <Icon icon="solar:alt-arrow-up-line-duotone" class="hs-accordion-active:block ml-auto hidden w-3 h-3 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" />
                         <Icon icon="solar:alt-arrow-down-line-duotone" class="hs-accordion-active:hidden ml-auto block w-3 h-3 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" />
