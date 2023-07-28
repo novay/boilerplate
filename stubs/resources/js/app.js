@@ -1,7 +1,5 @@
 // CSS
 import "../css/app.css";
-import "primevue/resources/themes/lara-light-indigo/theme.css";
-import "primevue/resources/primevue.min.css";
 import "@protonemedia/laravel-splade/dist/style.css";
 
 // JS
