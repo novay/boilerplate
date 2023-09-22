@@ -1,14 +1,22 @@
 <div class="min-h-screen flex-col">
-    @include('layouts.partials.navigation')
-    @include('layouts.partials.header')
-    @isset($header)
-        <div class="border-b bg-white w-screen">
-            <div class="w-full py-1 px-1 sm:px-2 md:px-2 lg:pl-60">
-                {{ $header }}
+    <div class="md:hidden">
+        @include('layouts.partials.navigation')
+    </div>
+    <div class="hidden md:block z-50">
+        @include('layouts.partials.header')
+    </div>
+    <main class="overflow-scroll h-screen">
+        @isset($header)
+            <div class="border-b bg-white w-screen pt-0 md:pt-8 fixed dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full py-1 px-1 sm:px-2 md:px-2">
+                    {{ $header }}
+                </div>
             </div>
-        </div>
-    @endisset
-    <main>
-        {{ $slot }}
+            <div class="block pt-7 md:pt-14">
+                {{ $slot }}
+            </div>
+        @else 
+            {{ $slot }}
+        @endisset
     </main>
 </div>

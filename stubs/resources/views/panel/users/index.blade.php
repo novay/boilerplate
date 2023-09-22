@@ -1,14 +1,15 @@
 @seoTitle($title)
 <x-app-layout>
     <x-slot name="header">
-        <x-breadcrumb :create="route($prefix.'.create')">
+        <x-breadcrumb>
+            <x-breadcrumb-item href="javascript:;">{{ __('Pengaturan') }}</x-breadcrumb-item>
             <x-breadcrumb-item>{{ $title }}</x-breadcrumb-item>
         </x-breadcrumb>
     </x-slot>
-    <div class="w-full pt-4 px-4 sm:px-6 md:px-8 lg:pl-60">
+    <div class="w-full p-2">
         <x-splade-lazy>
             <x-slot:placeholder><x-skeleton /></x-slot:placeholder>
-            <x-splade-table :for="$table" search-debounce="500">
+            <x-splade-table :for="$table" search-debounce="500" striped>
                 @push('button')
                     <x-link label="{{ __('+ Tambah') }}" route="{{ route($prefix.'.create') }}" modal></x-link>
                 @endpush

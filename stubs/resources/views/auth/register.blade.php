@@ -1,5 +1,5 @@
 @seoTitle(__('Register'))
-<x-guest-layout>
+<x-app-layout>
     <x-auth-card>
         <div class="text-center mb-3">
             <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">
@@ -19,4 +19,4 @@
             {{ __('Already registered?') }}
         </Link>
     </x-auth-card>
-</x-guest-layout>
+</x-app-layout>

@@ -12,7 +12,7 @@
     @endif
 
     @if($table->hasToggleableColumns())
-        <div class="order-3 sm:order-6 mr-2 sm:mr-2">
+        <div class="order-3 sm:order-6 mr-2 sm:mr-0">
             @include('splade::table.columns')
         </div>
     @endif
@@ -29,10 +29,16 @@
         </div>
     @endif
 
+    @if($table->hasToggleableSearchInputs())
+        <div class="order-6 sm:order-5 mr-2 sm:mr-2">
+            @include('splade::table.add-search-row')
+        </div>
+    @endif
+
     <button
         v-show="@js($canResetTable()) || table.columnsAreToggled || table.hasForcedVisibleSearchInputs"
         type="button"
-        class="order-7 sm:order-4 ml-auto mr-2 sm:mr-2 bg-white border rounded-md shadow-sm px-2.5 sm:px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 border-gray-300"
+        class="order-7 sm:order-4 ml-auto mr-2 sm:mr-2 bg-white border rounded shadow-sm px-2.5 sm:px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 dark:bg-gray-900 dark:text-white dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 border-gray-300"
         @click.prevent="table.reset"
         dusk="reset-table"
     >
@@ -42,14 +48,4 @@
 
         <span class="ml-2 hidden sm:inline">{{ __('Reset') }}</span>
     </button>
-
-    @if($table->hasToggleableSearchInputs())
-        <div class="order-6 sm:order-5 mr-2 sm:mr-2">
-            @include('splade::table.add-search-row')
-        </div>
-    @endif
-
-    <div class="order-7">
-        
-    </div>
 </div>

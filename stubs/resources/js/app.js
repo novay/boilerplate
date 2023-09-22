@@ -8,7 +8,7 @@ import "preline";
 import "./dark";
 
 // Library
-import { createApp } from "vue/dist/vue.esm-bundler.js";
+import { createApp, defineAsyncComponent } from "vue/dist/vue.esm-bundler.js";
 import { renderSpladeApp, SpladePlugin } from "@protonemedia/laravel-splade";
 
 // Components
@@ -25,4 +25,5 @@ createApp({render: renderSpladeApp({ el })})
         "view_transitions": true
     })
     .component('Icon', Icon)
+    .component('Clock', defineAsyncComponent(() => import("./Components/Clock.vue"))) 
     .mount(el);

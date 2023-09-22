@@ -1,0 +1,1 @@
+@if($name)<p class="text-red-600 text-xs mt-1.5 font-sans" v-if="form.hasError(@js($name))" v-bind="form.$errorAttributes(@js($name))" />@endif
