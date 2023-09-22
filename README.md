@@ -13,6 +13,8 @@ cd example-app
 
 composer require novay/boilerplate
 
+php artisan vendor:publish --provider="Novay\Boilerplate\BoilerplateServiceProvider" --tag="config"
+
 php artisan boilerplate:install
 
 
