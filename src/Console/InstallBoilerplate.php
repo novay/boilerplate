@@ -92,6 +92,8 @@ trait InstallBoilerplate
         copy($defaultStubsDir.'resources/css/app.css', resource_path('css/app.css'));
         copy($defaultStubsDir.'resources/js/app.js', resource_path('js/app.js'));
         copy($defaultStubsDir.'resources/js/dark.js', resource_path('js/dark.js'));
+
+        (new Filesystem)->ensureDirectoryExists(resource_path('js/Components'));
         copy($defaultStubsDir.'resources/js/Components/Clock.vue', resource_path('js/Components/Clock.vue'));
 
         if (file_exists(base_path('pnpm-lock.yaml'))) {
