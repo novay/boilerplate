@@ -9,7 +9,7 @@ class BoilerplateServiceProvider extends ServiceProvider implements DeferrablePr
 {
     public function register(): void
     {
-        //
+        $this->mergeConfigFrom(__DIR__ . '/../config/boilerplate.php', 'boilerplate');
     }
 
     public function boot(): void
@@ -21,6 +21,10 @@ class BoilerplateServiceProvider extends ServiceProvider implements DeferrablePr
         $this->commands([
             Console\InstallCommand::class,
         ]);
+
+        $this->publishes([
+            __DIR__ . '/../config/boilerplate.php' => config_path('boilerplate.php'),
+        ], 'config');
     }
 
     public function provides(): array
