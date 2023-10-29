@@ -30,10 +30,6 @@
                         Pengguna
                     </x-splade-link>
                 </li>
-
-                
-
-                
                 <li class="hs-accordion" id="kbud-accordion">
                     <a class="hs-accordion-toggle flex items-center gap-x-2 px-2.5 py-1.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm font-medium text-slate-700 rounded hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white" href="javascript:;">
                         <Icon class="w-5 h-5" icon="icon-park-twotone:folder-open" />

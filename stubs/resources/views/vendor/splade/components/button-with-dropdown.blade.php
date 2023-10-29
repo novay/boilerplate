@@ -1,9 +1,9 @@
-<x-splade-component is="dropdown" {{ $attributes->class('w-full bg-white border border-gray-300 rounded-md shadow-sm px-2.5 sm:px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500') }}>
+<x-splade-component is="dropdown" {{ $attributes->class('py-1.5 px-3 inline-flex justify-center items-center gap-1.5 ml-1 rounded border font-medium bg-white text-gray-700 align-middle hover:bg-gray-50 focus:z-10 focus:bg-gray-50 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400') }}>
     <x-slot:trigger>
         {{ $button }}
     </x-slot:trigger>
 
-    <div class="mt-2 min-w-max rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+    <div class="mt-1 min-w-max rounded shadow bg-white ring-1 ring-black ring-opacity-5">
         {{ $slot }}
     </div>
 </x-splade-component>

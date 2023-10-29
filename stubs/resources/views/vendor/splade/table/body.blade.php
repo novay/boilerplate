@@ -8,7 +8,7 @@
             }"
         >
             @if($hasBulkActions = $table->hasBulkActions())
-                <td width="64" class="text-xs px-6 py-2">
+                <td width="32" class="text-xs px-3 py-1.5">
                     @php $itemPrimaryKey = $table->findPrimaryKey($item) @endphp
 
                     <input
@@ -29,7 +29,7 @@
                         @click="(event) => table.visit(@js($table->rowLinks->get($itemKey)), @js($table->rowLinkType), event)"
                     @endif
                     v-show="table.columnIsVisible(@js($column->key))"
-                    class="whitespace-nowrap text-sm font-medium text-gray-600 dark:text-gray-200 @if($loop->first && $hasBulkActions) pr-6 @else px-6 @endif py-2 @if($column->highlight) text-gray-900 font-medium @else text-gray-500 @endif @if($table->rowLinks->has($itemKey)) cursor-pointer @endif {{ $column->classes }}"
+                    class="text-sm font-medium text-gray-600 dark:text-gray-200 border-l @if($loop->first && $hasBulkActions) px-3 @else px-3 @endif py-1.5 @if($column->highlight) text-gray-900 font-medium @else text-gray-500 @endif @if($table->rowLinks->has($itemKey)) cursor-pointer @endif {{ $column->classes }}"
                     width="{{ isset($column->width) ?? '' }}"
                 >
                     <div class="flex flex-row items-center @if($column->alignment == 'right') justify-end @elseif($column->alignment == 'center') justify-center @else justify-start @endif">
@@ -48,7 +48,7 @@
                 @if(isset($emptyState) && !!$emptyState)
                     {{ $emptyState }}
                 @else
-                    <p class="text-gray-700 px-6 py-12 font-medium text-center dark:text-white">
+                    <p class="text-gray-700 px-3 py-12 font-medium text-center dark:text-white">
                         {{ __('There are no items to show.') }}
                     </p>
                 @endif

@@ -1,6 +1,7 @@
 <div class="relative">
     <input
-      class="block w-full sm:pl-9 text-sm rounded focus:ring-indigo-500 focus:border-indigo-500 border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+      autocomplete="off"
+      class="block py-1.5 w-full rounded sm:pl-9 text-sm focus:ring-gray-200 focus:border-gray-200 border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
       placeholder="{{ $table->searchInputs('global')->label }}"
       value="{{ $table->searchInputs('global')->value }}"
       type="text"

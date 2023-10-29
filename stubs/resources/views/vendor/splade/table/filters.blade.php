@@ -1,13 +1,11 @@
 <x-splade-component is="button-with-dropdown" dusk="filters-dropdown">
     <x-slot:button>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"
-            :class="{
-                'text-gray-400': !@js($table->hasFiltersEnabled()),
-                'text-green-400': @js($table->hasFiltersEnabled()),
-            }"
-        >
-            <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
-        </svg>
+        <Icon icon="mingcute:filter-2-line"  class="h-5 w-5" :class="{
+            'text-gray-400': !@js($table->hasFiltersEnabled()),
+            'text-green-400': @js($table->hasFiltersEnabled()),
+        }" /> 
+        
+        <span class="hidden sm:inline">{{ __('Filters') }}</span>
     </x-slot:button>
 
     <div
