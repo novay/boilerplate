@@ -2,7 +2,7 @@
     <x-slot:button>
         <Icon icon="mingcute:filter-2-line"  class="h-5 w-5" :class="{
             'text-gray-400': !@js($table->hasFiltersEnabled()),
-            'text-green-400': @js($table->hasFiltersEnabled()),
+            'text-{{ config('boilerplate.color.label') }}-400': @js($table->hasFiltersEnabled()),
         }" /> 
         
         <span class="hidden sm:inline">{{ __('Filters') }}</span>
@@ -23,7 +23,7 @@
                     @if($filter->type === 'select')
                         <select
                             name="filter-{{ $filter->key }}"
-                            class="block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm text-sm border-gray-300 rounded-md"
+                            class="block focus:ring-{{ config('boilerplate.color.label') }}-500 focus:border-{{ config('boilerplate.color.label') }}-500 w-full shadow-sm text-sm border-gray-300 rounded-md"
                             @change="table.updateQuery('filter[{{ $filter->key }}]', $event.target.value)"
                         >
                             @foreach($filter->options() as $optionKey => $option)

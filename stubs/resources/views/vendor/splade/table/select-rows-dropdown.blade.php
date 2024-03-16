@@ -2,7 +2,7 @@
     <x-slot:trigger>
         <input
             type="checkbox"
-            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:opacity-50"
+            class="rounded border-gray-300 text-{{ config('boilerplate.color.label') }}-600 shadow-sm focus:border-{{ config('boilerplate.color.label') }}-300 focus:ring focus:ring-{{ config('boilerplate.color.label') }}-200 focus:ring-opacity-50 disabled:opacity-50"
             :checked="table.allVisibleItemsAreSelected"
         />
     </x-slot:trigger>

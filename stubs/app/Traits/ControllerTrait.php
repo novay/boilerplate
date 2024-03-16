@@ -23,7 +23,7 @@ trait ControllerTrait
     public function create(Request $request)
     {
         return view("{$this->view}.create", [
-            'subtitle' => __('Create')
+            'subtitle' => ___('Tambah')
         ]);
     }
 
@@ -37,8 +37,8 @@ trait ControllerTrait
 
         $this->data->create($input);
 
-        Splade::toast(__("New {$this->title} created successfully!"));
-        return redirect()->route("{$this->prefix}.index");
+        Splade::toast(___("{$this->title} baru berhasil ditambahkan!"));
+        return redirect()->back();
     }
 
     /**
@@ -46,9 +46,11 @@ trait ControllerTrait
      */
     public function edit(Request $request, $id)
     {
+        $edit = $this->data->findOrFail($id);
+        
         return view("{$this->view}.edit", [
-            'subtitle' => __('Edit'), 
-            'edit' => $this->data->find($id)
+            'subtitle' => ___('Sunting'), 
+            'edit' => $edit
         ]);
     }
 
@@ -57,14 +59,14 @@ trait ControllerTrait
      */
     public function update(Request $request, $id)
     {
-        $edit = $this->data->find($id);
+        $edit = $this->data->findOrFail($id);
         $input = $this->rules($request, $edit);
         $input = $this->customEdit($request, $input, $edit);
         
         $edit->update($input);
 
-        Splade::toast(__("{$this->title} updated successfully!"));
-        return redirect()->route("{$this->prefix}.index");
+        Splade::toast(___("{$this->title} berhasil diperbarui!"));
+        return redirect()->back();
     }
 
     /**
@@ -72,11 +74,12 @@ trait ControllerTrait
      */
     public function destroy(Request $request, $id)
     {
-        $data = $this->data->find($id);
+        $data = $this->data->findOrFail($id);
+        $this->customDelete($request, $id);
         $data->delete();
 
-        Splade::toast(__("{$this->title} deleted successfully!"));
-        return redirect()->route("{$this->prefix}.index");
+        Splade::toast(___("{$this->title} telah dihapus!"));
+        return redirect()->back();
     }
 
     /**
@@ -93,5 +96,13 @@ trait ControllerTrait
     public function customEdit(Request $request, $input, $edit)
     {
         return $input;
+    }
+
+    /**
+     * Custom function.
+     */
+    public function customDelete(Request $request, $id)
+    {
+        return;
     }
 }

@@ -9,19 +9,23 @@ Route::middleware('splade')->group(function ()
     Route::spladeTable();
     Route::spladeUploads();
 
-    Route::view('/', 'welcome');
-    Route::middleware('auth')->namespace('App\Http\Controllers\Panel')->as('panel.')->group(function () 
+    Route::namespace('App\Http\Controllers')->group(function () 
     {
-        Route::view('dashboard', 'panel.dashboard')->middleware(['verified'])->name('index');
+        Route::get('/', 'IndexController@index')->name('index');
+        Route::post('lang', 'IndexController@lang')->name('lang');
+        Route::middleware('auth')->namespace('Panel')->as('panel.')->group(function () 
+        {
+            Route::view('dashboard', 'panel.dashboard')->middleware(['verified'])->name('index');
 
-        Route::get('profile', 'ProfileController@edit')->name('profile.edit');
-        Route::patch('profile', 'ProfileController@update')->name('profile.update');
-        Route::delete('profile', 'ProfileController@destroy')->name('profile.destroy');
+            Route::get('profile', 'ProfileController@edit')->name('profile.edit');
+            Route::patch('profile', 'ProfileController@update')->name('profile.update');
+            Route::delete('profile', 'ProfileController@destroy')->name('profile.destroy');
 
-        Route::resource('users', 'UserController');
+            Route::resource('users', 'UserController');
 
-        // Put your routes here
-        // ...
+            // Put your routes here
+            // ...
+        });
     });
 
     require __DIR__.'/auth.php';

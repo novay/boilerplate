@@ -3,8 +3,6 @@
 namespace Novay\Boilerplate\Console;
 
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Finder\Finder;
-
 use ProtoneMedia\Splade\Commands\InstallsSpladeExceptionHandler;
 use ProtoneMedia\Splade\Commands\InstallsSpladeRouteMiddleware;
 
@@ -35,6 +33,7 @@ trait InstallBoilerplate
                 'tailwindcss' => '^3.2.1',
                 'vite' => '^3.0.0',
                 'vue' => '^3.2.41',
+                'vue-tippy' => '^6.4.1'
             ] + $packages;
         });
 
@@ -47,6 +46,10 @@ trait InstallBoilerplate
         // Controllers...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
         (new Filesystem)->copyDirectory($defaultStubsDir.'app/Http/Controllers', app_path('Http/Controllers'));
+
+        // Middleware...
+        (new Filesystem)->ensureDirectoryExists(app_path('Http/Middleware'));
+        (new Filesystem)->copyDirectory($defaultStubsDir.'app/Http/Middleware', app_path('Http/Middleware'));
 
         // Traits...
         (new Filesystem)->ensureDirectoryExists(app_path('Traits'));
@@ -91,7 +94,6 @@ trait InstallBoilerplate
         copy($defaultStubsDir.'vite.config.js', base_path('vite.config.js'));
         copy($defaultStubsDir.'resources/css/app.css', resource_path('css/app.css'));
         copy($defaultStubsDir.'resources/js/app.js', resource_path('js/app.js'));
-        copy($defaultStubsDir.'resources/js/dark.js', resource_path('js/dark.js'));
 
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Components'));
         (new Filesystem)->copyDirectory($defaultStubsDir.'resources/js/Components', resource_path('js/Components'));

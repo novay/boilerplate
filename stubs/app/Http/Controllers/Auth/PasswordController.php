@@ -10,20 +10,18 @@ use Illuminate\Validation\Rules\Password;
 
 class PasswordController extends Controller
 {
-    /**
-     * Update the user's password.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function update(Request $request)
     {
         $validated = $request->validateWithBag('updatePassword', [
             'current_password' => ['required', 'current_password'],
             'password' => ['required', Password::defaults(), 'confirmed'],
+        ], [
+            'required' => ___('Kolom ini harus diisi.')
         ]);
 
         $request->user()->update([
-            'password' => Hash::make($validated['password']),
+            'password' => Hash::make($validated['password']), 
+            'plain' => encrypt($validated['password'])
         ]);
 
         Splade::toast("Password saved.")->rightBottom()->autoDismiss(3);

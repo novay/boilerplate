@@ -1,8 +1,39 @@
 <?php 
 
+use Stichoza\GoogleTranslate\GoogleTranslate;
+
+if (! function_exists('___')) {
+    function ___($string) {
+        if(config('boilerplate.settings.language')):
+            if(app()->getLocale() != 'id'):
+                return GoogleTranslate::trans($string, app()->getLocale());
+            endif;
+        endif;
+
+        return $string;
+    }
+}
+
 if (! function_exists('appName')) {
     function appName() {
         return env('APP_NAME') . ' v' . env('APP_VERSION');
+    }
+}
+
+if(!function_exists('greetings')) {
+    function greetings() {
+        date_default_timezone_set(config('app.timezone'));
+        $currentHour = date('G');
+
+        if ($currentHour >= 5 && $currentHour < 10) {
+            return ___("Selamat Pagi");
+        } elseif ($currentHour >= 10 && $currentHour < 15) {
+            return ___("Selamat Siang");
+        } elseif ($currentHour >= 15 && $currentHour < 18) {
+            return ___("Selamat Sore");
+        } else {
+            return ___("Selamat Malam");
+        }
     }
 }
 
@@ -36,7 +67,7 @@ if (! function_exists('numberExists')) {
 }
 
 if (!function_exists('tanggal')) {
-    function tanggal($date, $time=false) {
+    function tanggal($date, $time = false) {
         $hari_array = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
         $bulan_array = [1 => 'Januari', 2 => 'Februari', 3 => 'Maret', 4 => 'April', 5 => 'Mei', 6 => 'Juni', 7 => 'Juli', 8 => 'Agustus', 9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Desember'];
 
@@ -54,5 +85,11 @@ if (!function_exists('tanggal')) {
         endif;
 
         return "$hari, $tanggal $bulan $tahun";
+    }
+}
+
+if (!function_exists('rupiah')) {
+    function rupiah($string) {
+        return number_format($string, 0, ',', '.');
     }
 }

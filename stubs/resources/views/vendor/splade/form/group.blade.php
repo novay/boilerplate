@@ -9,7 +9,7 @@
     @includeWhen($label, 'splade::form.label', ['label' => $label])
 
     <div {{ $attributes->except(['v-if', 'v-show', 'class'])->class([
-        'flex flex-wrap space-x-6' => $inline && $gridClasses->isEmpty(),
+        'flex flex-wrap space-x-3' => $inline && $gridClasses->isEmpty(),
         'space-y-1' => !$inline && $gridClasses->isEmpty(),
     ])->class($gridClasses->all()) }}
     >

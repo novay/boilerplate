@@ -2,7 +2,7 @@
     <x-slot:button>
         <Icon icon="mingcute:eye-2-line"  class="h-5 w-5" :class="{
             'text-gray-400': !table.columnsAreToggled,
-            'text-green-400': table.columnsAreToggled,
+            'text-{{ config('boilerplate.color.label') }}-400': table.columnsAreToggled,
         }" /> 
         <span class="hidden sm:inline">{{ __('Show/Hide') }}</span>
     </x-slot:button>
@@ -22,7 +22,7 @@
                                 id="toggle-column-{{ $column->key }}"
                                 class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                                 :class="{
-                                    'bg-green-500': table.columnIsVisible(@js($column->key)),
+                                    'bg-{{ config('boilerplate.color.label') }}-500': table.columnIsVisible(@js($column->key)),
                                     'bg-gray-200': !table.columnIsVisible(@js($column->key)),
                                 }"
                                 :aria-checked="table.columnIsVisible(@js($column->key))"

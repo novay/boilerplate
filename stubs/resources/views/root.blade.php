@@ -6,11 +6,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter-tight:100,200,300,400,500,600,700,800,900&display=swap">
+    <link href="https://fonts.cdnfonts.com/css/sf-ui-display" rel="stylesheet">
     @vite(['resources/js/app.js'])
     @spladeHead
 </head>
-<body class="bg-gray-50 dark:bg-slate-900 font-sans antialiased">
+<body class="font-sans antialiased">
     @splade
 </body>
 </html>

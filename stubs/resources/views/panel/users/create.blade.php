@@ -7,8 +7,8 @@
         </x-breadcrumb>
     </x-slot>
     <div class="w-full pt-4 px-4 sm:px-6 md:px-8 lg:pl-60">
-        <x-splade-modal max-width="sm">
-            <x-splade-form :action="route($prefix.'.store')" class="space-y-4">
+        <x-splade-modal max-width="md" class="!p-0">
+            <x-splade-form :action="route($prefix.'.store')" autocomplete="off">
                 @include("$view.form")
             </x-splade-form>
         </x-splade-modal>

@@ -23,9 +23,9 @@
                             <x-splade-component is="dialog" panel class="relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full sm:p-6">
                                 <div class="sm:flex sm:items-start">
                                     <div class="text-center sm:mt-0 sm:text-left">
-                                        <h3 class="text-lg leading-6 font-medium text-gray-900" v-text="confirm.title" />
+                                        <h3 class="text-lg leading-6 font-bold text-gray-900" v-text="confirm.title" />
                                         <div class="mt-2" v-if="confirm.text">
-                                            <p class="text-sm text-gray-500" v-text="confirm.text" />
+                                            <p class="font-medium text-gray-500" v-text="confirm.text" />
                                         </div>
 
                                         <div class="mt-2 flex rounded-md border border-gray-300 shadow-sm" v-if="confirm.confirmPassword">
@@ -34,7 +34,7 @@
                                                 name="password"
                                                 placeholder="Password"
                                                 v-on:change="confirm.setPassword($event.target.value)"
-                                                class="rounded-md block w-full border-0 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:opacity-50 disabled:bg-gray-50 disabled:cursor-not-allowed"
+                                                class="rounded-md block w-full border-0 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 disabled:opacity-50 disabled:bg-gray-50 disabled:cursor-not-allowed"
                                                 @keyup.enter="confirm.confirm"
                                                 :disabled="confirm.submitting"
                                             />
@@ -44,14 +44,14 @@
                                     </div>
                                 </div>
 
-                                <div class="mt-5 sm:mt-4 sm:flex">
+                                <div class="mt-5 sm:mt-6 sm:flex">
                                     <button
                                         dusk="splade-confirm-confirm"
                                         type="button"
                                         class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto sm:text-sm"
                                         :class="{
-                                            'bg-indigo-500 hover:bg-indigo-700 focus:ring-indigo-500': !confirm.confirmDanger,
-                                            'bg-red-500 hover:bg-red-700 focus:ring-red-500': confirm.confirmDanger
+                                            'bg-green-600 hover:bg-green-700 focus:ring-green-500': !confirm.confirmDanger,
+                                            'bg-red-600 hover:bg-red-700 focus:ring-red-500': confirm.confirmDanger
                                         }"
                                         @click.prevent="confirm.confirm"
                                         :disabled="confirm.submitting"
@@ -60,7 +60,7 @@
                                     <button
                                         dusk="splade-confirm-cancel"
                                         type="button"
-                                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                                         @click.prevent="confirm.cancel"
                                         :disabled="confirm.submitting"
                                         v-text="confirm.cancelButton"

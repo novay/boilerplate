@@ -12,6 +12,8 @@ use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
+    protected $prefix, $view; 
+
     public function __construct()
     {
         $this->view = 'panel.profile';
@@ -23,11 +25,6 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Display the user's profile form.
-     *
-     * @return \Illuminate\View\View
-     */
     public function edit(Request $request)
     {
         return view("{$this->view}.edit", [
@@ -35,11 +32,6 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Update the user's profile information.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function update(ProfileUpdateRequest $request)
     {
         $request->user()->fill($request->validated());
@@ -54,11 +46,6 @@ class ProfileController extends Controller
         return Redirect::route("{$this->prefix}.edit")->with('status', 'profile-updated');
     }
 
-    /**
-     * Delete the user's account.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function destroy(Request $request)
     {
         $request->validateWithBag('userDeletion', [

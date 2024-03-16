@@ -1,20 +1,31 @@
-<x-app-layout>
+@seoTitle(__('Lupa Sandi'))
+<x-blank-layout>
     <x-auth-card>
-        <div class="text-center mb-2">
-            <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">
-                {{ __('Forgot your password?') }}'
+        <div class="mt-3 mb-2">
+            <Link class="flex items-center gap-1 text-sm dark:text-blue-500 text-blue-600 font-medium mb-3" href="{{ route('login') }}">
+                <Icon icon="tabler:chevron-left" />
+                {{ ___('Kembali') }}
+            </Link>
+            @isset($logo)
+                {{ $logo }}
+            @else
+                <Link href="javascript:;">
+                    <x-application-logo class="w-16 h-16 fill-current text-gray-500" />
+                </Link>
+            @endisset
+        </div>
+        <div class="text-start border-l-4 pl-2 mb-4">
+            <h1 class="text-lg block font-bold tracking-tight text-gray-700 dark:text-white mb-1">
+                {{ ___('Lupa sandi?') }}
             </h1>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                {{ __('No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+                {{ ___('Masukkan email yang kamu gunakan saat pendaftaran dan kami akan mengirim email berisi tautan untuk melakukan pembaruan sandi.') }}
             </p>
         </div>
         <x-auth-session-status class="mb-4" />
-        <x-splade-form action="{{ route('password.email') }}" class="space-y-4 pb-2">
-            <x-splade-input id="email" class="block mt-1 w-full" type="email" name="email" :label="__('Email')" autofocus />
-            <x-splade-submit class="d-block w-full" :label="__('Email Password Reset Link')" />
+        <x-splade-form action="{{ route('password.email') }}" class="space-y-4 pb-2" autocomplete="off">
+            <x-splade-input class="block mt-1 w-full" type="email" name="email" :label="___('Surel')" autofocus placeholder="eg. novay@btekno.id" />
+            <x-splade-submit class="d-block w-full" :label="___('Email Password Reset Link')" />
         </x-splade-form>
-        <Link class="text-blue-600 decoration-2 hover:underline font-medium" href="{{ route('login') }}">
-            {{ __('Back to Login') }}
-        </Link>
     </x-auth-card>
-</x-app-layout>
+</x-blank-layout>

@@ -4,9 +4,9 @@
     <template #default="button">
         <{{ $type === 'link' ? 'Link' : 'button' }} :disabled="button.spinner" {{ $attributes->class([
             'border rounded-md shadow-sm font-bold py-2 px-4 focus:outline-none focus:ring focus:ring-opacity-50',
-            'bg-red-500 hover:bg-red-700 text-white border-transparent focus:border-red-300 focus:ring-red-200' => !$customStyling && $primary,
+            'bg-yellow-500 hover:bg-yellow-700 text-white border-transparent focus:border-yellow-300 focus:ring-yellow-200' => !$customStyling && $primary,
             'bg-red-500 hover:bg-red-700 text-white border-transparent focus:border-red-700 focus:ring-red-200' => !$customStyling && $danger,
-            'bg-white hover:bg-gray-100 text-gray-700 border-gray-300 focus:border-red-300 focus:ring-red-200' => !$customStyling && $secondary,
+            'bg-white hover:bg-gray-100 text-gray-700 border-gray-300 focus:border-yellow-300 focus:ring-yellow-200' => !$customStyling && $secondary,
         ])
             ->except(['v-bind:spinner', ':spinner'])
             ->merge(['type' => $type])
