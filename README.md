@@ -34,7 +34,7 @@ npm run dev
 
 Additionally, you can follow this step:
 
-```bash
+```php
 // app/Providers/AppServiceProvider.php
 ...
 use ProtoneMedia\Splade\Facades\Splade;
