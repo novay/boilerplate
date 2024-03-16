@@ -8,7 +8,7 @@ return
     # Enable the default settings
     'settings' => [
         'register' => true, 
-        'language' => true, 
+        'language' => false, 
         'darkmode' => true
     ], 
 
