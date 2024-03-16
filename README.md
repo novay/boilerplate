@@ -1,13 +1,13 @@
 # Laravel Boilerplate
 
-💡 This built for my personal use.
+💡 This built for my personal use. **For Laravel 10 only**.
 
 ## Installation
 
 📖 The installation process is quite simple.
 
 ```bash
-laravel new example-app
+composer create-project laravel/laravel:^10.0 example-app
 
 cd example-app
 
@@ -36,9 +36,9 @@ npm run dev
 
 📖 Complete documentation for [Laravel Splade](https://splade.dev/docs/introducing-splade)
 
-You can use both for frontend toolkit:
-- [Basic Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+You can use this toolkit right away:
 - [Preline](https://preline.co/docs/index.html) (Tailwind)
+- [Iconify Design](https://icon-sets.iconify.design) (Icon)
 
 ## Changelog
 

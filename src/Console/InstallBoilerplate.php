@@ -63,6 +63,10 @@ trait InstallBoilerplate
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Requests'));
         (new Filesystem)->copyDirectory($defaultStubsDir.'app/Http/Requests', app_path('Http/Requests'));
 
+        // Databases...
+        (new Filesystem)->ensureDirectoryExists(base_path('database/migrations'));
+        (new Filesystem)->copyDirectory($defaultStubsDir.'database/migrations', base_path('database/migrations'));
+
         // Views...
         (new Filesystem)->ensureDirectoryExists(resource_path('views'));
         (new Filesystem)->copyDirectory($defaultStubsDir.'resources/views', resource_path('views'));
