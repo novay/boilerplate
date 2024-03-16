@@ -18,16 +18,24 @@
         }
     ],
     "require": {
+<<<<<<< HEAD
         "php": "^8.0.2",
+=======
+        "php": "^8.2",
+>>>>>>> 3e9b0663a34dcc1932077e92057ee8700577038c
         "illuminate/console": "^9.37|^10.0|^11.0",
         "illuminate/filesystem": "^9.37|^10.0|^11.0",
         "illuminate/support": "^9.37|^10.0|^11.0",
         "illuminate/validation": "^9.37|^10.0|^11.0",
+<<<<<<< HEAD
         "protonemedia/laravel-splade": "^1.3.0", 
         "stichoza/google-translate-php": "^5.1", 
         "maatwebsite/excel": "^3.1", 
         "kirschbaum-development/eloquent-power-joins": "2.*", 
         "league/flysystem-aws-s3-v3": "^3.24"
+=======
+        "protonemedia/laravel-splade": "^1.3.0"
+>>>>>>> 3e9b0663a34dcc1932077e92057ee8700577038c
     },
     "conflict": {
         "laravel/framework": "<9.37.0"
