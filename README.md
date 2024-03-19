@@ -1,6 +1,6 @@
 # Laravel Boilerplate
 
-💡 This built for my personal use. **For Laravel 10 only**.
+💡 This built for my personal use. **Tested on Laravel 10 & 11**.
 
 ## Installation
 
