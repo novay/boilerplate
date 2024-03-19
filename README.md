@@ -60,7 +60,7 @@ class AppServiceProvider extends ServiceProvider
     ...
 }
 
-// app/Http/Kernel.php
+// app/Http/Kernel.php (Laravel 10)
 ...
 class Kernel extends HttpKernel
 {
@@ -81,14 +81,15 @@ class Kernel extends HttpKernel
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\HasApiTokens; # Laravel 10
 
 use App\Traits\HasProfilePhoto;
 use App\Traits\RandomIds;
 
 class User extends Authenticatable // implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens; # Laravel 10
+    use HasFactory, Notifiable;
     use HasProfilePhoto, RandomIds;
 
     protected $fillable = [
@@ -108,12 +109,24 @@ class User extends Authenticatable // implements MustVerifyEmail
         'remember_token',
     ];
 
+    # Laravel 10
     protected $casts = [
         'password' => 'hashed',
         'email_verified_at' => 'datetime',
         'deleted_at' => 'datetime',
         'last_login_at' => 'datetime',
     ];
+
+    # Laravel 11
+    protected function casts(): array
+    {
+        return [
+            'password' => 'hashed',
+            'email_verified_at' => 'datetime',
+            'deleted_at' => 'datetime',
+            'last_login_at' => 'datetime',
+        ];
+    }
 }
 ````
 
