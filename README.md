@@ -21,9 +21,6 @@ cd example-app
 composer require novay/boilerplate "1.0.56"
 php artisan vendor:publish --provider="Novay\Boilerplate\BoilerplateServiceProvider" --tag="config"
 
-# Additional
-composer require kirschbaum-development/eloquent-power-joins "2.*"
-
 php artisan boilerplate:install
 ```
 
@@ -128,6 +125,11 @@ class User extends Authenticatable // implements MustVerifyEmail
         ];
     }
 }
+````
+
+```bash
+# Additional
+composer require kirschbaum-development/eloquent-power-joins "2.*"
 ````
 
 ## Documentation
