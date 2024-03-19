@@ -22,7 +22,7 @@ php artisan boilerplate:install
 # Laravel 11
 laravel new example-app
 cd example-app
-composer require novay/boilerplate "1.0.55"
+composer require novay/boilerplate "1.0.56"
 php artisan vendor:publish --provider="Novay\Boilerplate\BoilerplateServiceProvider" --tag="config"
 
 # Additional
