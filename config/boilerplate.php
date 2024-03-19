@@ -12,6 +12,10 @@ return
         'darkmode' => true
     ], 
 
+    'route' => [
+        'home' => 'dashboard'
+    ], 
+
     'info' => [
         'icon' => '', 
         'copyright' => 'Boilerplate (Laravel Splade).', 

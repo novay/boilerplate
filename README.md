@@ -7,6 +7,7 @@
 📖 The installation process is quite simple.
 
 ```bash
+# Laravel 10
 composer create-project laravel/laravel:^10.0 example-app
 
 cd example-app
@@ -18,6 +19,16 @@ php artisan vendor:publish --provider="Novay\Boilerplate\BoilerplateServiceProvi
 php artisan boilerplate:install
 
 
+# Laravel 11
+laravel new example-app
+cd example-app
+composer require novay/boilerplate "1.0.55"
+php artisan vendor:publish --provider="Novay\Boilerplate\BoilerplateServiceProvider" --tag="config"
+
+# Additional
+composer require kirschbaum-development/eloquent-power-joins "2.*"
+
+php artisan boilerplate:install
 ```
 
 Do not forget to migrate our default migration:
