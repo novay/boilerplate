@@ -23,16 +23,16 @@ trait InstallBoilerplate
             return [
                 '@iconify/vue' => '^4.1.1',
                 '@protonemedia/laravel-splade' => '^1.3.0',
-                '@tailwindcss/forms' => '^0.5.3',
-                '@tailwindcss/typography' => '^0.5.2',
-                '@vitejs/plugin-vue' => '^3.0.0',
-                'autoprefixer' => '^10.4.12',
-                'laravel-vite-plugin' => '^0.7.7',
-                'postcss' => '^8.4.18',
+                '@tailwindcss/forms' => '^0.5.7',
+                '@tailwindcss/typography' => '^0.5.10',
+                '@vitejs/plugin-vue' => '^5.0',
+                'autoprefixer' => '^10.4.16',
+                'laravel-vite-plugin' => '^1.0',
+                'postcss' => '^8.4.32',
                 'preline' => '^1.8.0',
-                'tailwindcss' => '^3.2.1',
-                'vite' => '^3.0.0',
-                'vue' => '^3.2.41',
+                'tailwindcss' => '^3.4',
+                'vite' => '^3.4',
+                'vue' => '^3.4',
                 'vue-tippy' => '^6.4.1'
             ] + $packages;
         });
@@ -83,7 +83,9 @@ trait InstallBoilerplate
         copy($defaultStubsDir.'routes/auth.php', base_path('routes/auth.php'));
 
         // "Dashboard" Route...
-        $this->replaceInFile('/home', '/dashboard', app_path('Providers/RouteServiceProvider.php'));
+        if (!version_compare(app()->version(), '11.0', '>=')) {
+            $this->replaceInFile('/home', '/dashboard', app_path('Providers/RouteServiceProvider.php'));
+        }
 
         // Tailwind / Vite...
         copy($spladeStubsDir.'tailwind.config.js', base_path('tailwind.config.js'));
