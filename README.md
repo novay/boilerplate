@@ -19,6 +19,7 @@ php artisan boilerplate:install
 laravel new example-app
 cd example-app
 composer require novay/boilerplate "1.0.56"
+composer require protonemedia/laravel-splade "1.4.18"
 php artisan vendor:publish --provider="Novay\Boilerplate\BoilerplateServiceProvider" --tag="config"
 
 php artisan boilerplate:install
@@ -41,16 +42,13 @@ Additionally, you can follow this step:
 ```php
 // app/Providers/AppServiceProvider.php
 ...
-use ProtoneMedia\Splade\Facades\Splade;
-use Illuminate\Support\Facades\Schema;
-
 class AppServiceProvider extends ServiceProvider
 {
     ...
     public function boot(): void
     {
-        Schema::defaultStringLength(191);
-        Splade::defaultToast(function ($toast) {
+        \Illuminate\Support\Facades\Schema::defaultStringLength(191);
+        \ProtoneMedia\Splade\Facades\Splade::defaultToast(function ($toast) {
             $toast->autoDismiss(3);
         });
     }
@@ -129,7 +127,7 @@ class User extends Authenticatable // implements MustVerifyEmail
 
 ```bash
 # Additional
-composer require kirschbaum-development/eloquent-power-joins "2.*"
+composer require kirschbaum-development/eloquent-power-joins
 ````
 
 ## Documentation
